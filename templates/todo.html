@@ -7,8 +7,11 @@
 
     <div class="my-3 border border-1 rounded-2 px-2 w-25">
         {% for to_do in todos %}
-        <input type="checkbox" class="btn-back " id="{{to_do.id}}" autocomplete="off">
-        <label class="btn d-block text-start my-2 " for="{{to_do.id}}">{{ to_do.todo }}</label>
+        <input type="checkbox" class="btn-check border-0 " id="{{to_do.id}}" autocomplete="off">
+        <label class="btn d-block text-start my-2 d-flex align-items-center justify-content-between" for="{{to_do.id}}">
+            {{ to_do.todo }}
+            <iconify-icon icon="fluent:delete-24-regular" width="24" height="24"></iconify-icon>
+        </label>
         {% endfor %}
     </div>
 </div>

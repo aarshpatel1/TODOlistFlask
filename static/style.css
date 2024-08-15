@@ -94,6 +94,6 @@
 }
 
 
-.btn-back:checked+.btn {
+.btn-check:checked+.btn {
     text-decoration: line-through;
 }
