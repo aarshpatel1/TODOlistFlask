@@ -59,5 +59,13 @@ def home():
     return render_template("todo.html", form=form, todos=all_todos)
 
 
+@app.route("/delete/<int:todo_id>")
+def delete_todo(todo_id):
+    delete = db.get_or_404(Todos, todo_id)
+    db.session.delete(delete)
+    db.session.commit()
+    return redirect(url_for("home"))
+
+
 if __name__ == "__main__":
     app.run(debug=True)

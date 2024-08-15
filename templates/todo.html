@@ -7,11 +7,20 @@
 
     <div class="my-3 border border-1 rounded-2 px-2 w-25">
         {% for to_do in todos %}
-        <input type="checkbox" class="btn-check border-0 " id="{{to_do.id}}" autocomplete="off">
-        <label class="btn d-block text-start my-2 d-flex align-items-center justify-content-between" for="{{to_do.id}}">
-            {{ to_do.todo }}
-            <iconify-icon icon="fluent:delete-24-regular" width="24" height="24"></iconify-icon>
-        </label>
+        <div class=" d-flex align-items-center justify-content-between my-2">
+            <input type="checkbox" class="btn-check border-0" id="{{to_do.id}}" autocomplete="off">
+            <label class="btn d-block text-start  w-100" for="{{to_do.id}}">
+                {{ to_do.todo }}
+            </label>
+            <a href="#">
+                <iconify-icon icon="line-md:edit" width="24" height="24"
+                              class="text-primary border rounded-3 ms-2 p-2"></iconify-icon>
+            </a>
+            <a href="{{ url_for('delete_todo', todo_id=to_do.id) }}">
+                <iconify-icon icon="fluent:delete-24-regular" width="24" height="24"
+                              class="text-danger border rounded-3 ms-2 p-2"></iconify-icon>
+            </a>
+        </div>
         {% endfor %}
     </div>
 </div>
