@@ -2,5 +2,14 @@
 {% block title %}To-Do{% endblock %}
 {% from 'bootstrap5/form.html' import render_form %}
 {% block content %}
-{% from 'bootstrap4/form.html' import render_form %}
+<div class="container">
+    {{ render_form(form) }}
+
+    <div class="my-3 border border-1 rounded-2 px-2 w-25">
+        {% for to_do in todos %}
+        <input type="checkbox" class="btn-back " id="{{to_do.id}}" autocomplete="off">
+        <label class="btn d-block text-start my-2 " for="{{to_do.id}}">{{ to_do.todo }}</label>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

@@ -87,3 +87,13 @@
     transition: all 0.2s linear;
     transition-delay: 0.15s;
 }
+
+
+.form-control {
+    width: 25%
+}
+
+
+.btn-back:checked+.btn {
+    text-decoration: line-through;
+}
