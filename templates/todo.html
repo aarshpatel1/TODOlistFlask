@@ -5,14 +5,14 @@
 <div class="container">
     {{ render_form(form) }}
 
-    <div class="my-3 border border-1 rounded-2 px-2 w-25">
+    <div class="my-3 border border-1 rounded-2 px-2 w-50">
         {% for to_do in todos %}
         <div class=" d-flex align-items-center justify-content-between my-2">
             <input type="checkbox" class="btn-check border-0" id="{{to_do.id}}" autocomplete="off">
-            <label class="btn d-block text-start  w-100" for="{{to_do.id}}">
+            <label class="btn d-block text-start w-100" for="{{to_do.id}}">
                 {{ to_do.todo }}
             </label>
-            <a href="#">
+            <a href="{{ url_for('edit_todo', todo_id=to_do.id ) }}">
                 <iconify-icon icon="line-md:edit" width="24" height="24"
                               class="text-primary border rounded-3 ms-2 p-2"></iconify-icon>
             </a>

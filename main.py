@@ -67,5 +67,20 @@ def delete_todo(todo_id):
     return redirect(url_for("home"))
 
 
+@app.route("/<int:todo_id>", methods=["GET", "POST"])
+def edit_todo(todo_id):
+    all_todos = db.session.execute(db.select(Todos)).scalars().all()
+    edit = db.get_or_404(Todos, todo_id)
+    editing = AddTodo(
+        todo=edit.todo
+    )
+    if editing.validate_on_submit():
+        edit.todo = editing.todo.data
+        db.session.commit()
+        return redirect(url_for("home"))
+
+    return render_template("todo.html", form=editing, todos=all_todos)
+
+
 if __name__ == "__main__":
     app.run(debug=True)
