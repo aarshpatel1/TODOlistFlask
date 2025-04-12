@@ -14,11 +14,11 @@
             </label>
             <a href="{{ url_for('edit_todo', todo_id=to_do.id ) }}">
                 <iconify-icon icon="line-md:edit" width="24" height="24"
-                              class="text-primary border rounded-3 ms-2 p-2"></iconify-icon>
+                              class="btn btn-outline-primary ms-2 p-2"></iconify-icon>
             </a>
             <a href="{{ url_for('delete_todo', todo_id=to_do.id) }}">
                 <iconify-icon icon="fluent:delete-24-regular" width="24" height="24"
-                              class="text-danger border rounded-3 ms-2 p-2"></iconify-icon>
+                              class="btn btn-outline-danger ms-2 p-2"></iconify-icon>
             </a>
         </div>
         {% endfor %}
